@@ -1,0 +1,26 @@
+﻿@using WordCounterWeb.Models;
+@model IEnumerable<WordCount>
+
+<!doctype html>
+<html>
+    <head></head>
+    <body>
+
+        <form method="post" action="~/Home/Index"> 
+            <textarea cols="40" rows="10" name="source" style="resize: none"> </textarea><br/>
+            
+            One Word:   <input type="radio" name="entries" value="1"><br/>
+            Two Words:  <input type="radio" name="entries" value="2"><br/>
+            Three Words:<input type="radio" name="entries" value="3"><br/>
+
+            TOP <input type="number" name="top" min="1" max="10"><br/>
+
+            <input type="submit" value="enter">
+        </form>
+
+        @foreach (var item in Model)
+    {
+        <p>@item.Word @item.Count @item.Percent </p> 
+    }
+    </body>
+</html>
